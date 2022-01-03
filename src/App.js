@@ -1,16 +1,28 @@
+import { Route, Switch } from "react-router-dom";
+
+//pages
+import AllMeetupPage from "./pages/AllMeetupPage";
+import NewMeetupPage from "./pages/NewMeetupPage";
+import FavoritesPage from "./pages/FavoritesPage";
+
 import "./App.css";
+import Layout from "./components/layouts/Layout";
 
 function App() {
   return (
-    <div>
-      <h1>Todo List</h1>
-      <div className="card">
-        <h2>Items</h2>
-        <div className="actions">
-          <button className="btn">Remove</button>
-        </div>
-      </div>
-    </div>
+    <Layout>
+      <Switch>
+        <Route path="/" exact>
+          <AllMeetupPage />
+        </Route>
+        <Route path="/new-meetup">
+          <NewMeetupPage />
+        </Route>
+        <Route path="/favorites">
+          <FavoritesPage />
+        </Route>
+      </Switch>
+    </Layout>
   );
 }
 
